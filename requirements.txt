@@ -1,0 +1,22 @@
+opencv-contrib-python
+numpy
+
+# Create a local venv, install requirements, ensure folders, then run
+param(
+  [string]$Py="python",
+  [string]$Venv=".venv"
+)
+
+if (!(Test-Path $Venv)) { & $Py -m venv $Venv }
+. (Join-Path $Venv "Scripts\Activate.ps1")
+
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# Ensure runtime folders
+New-Item -ItemType Directory -Force -Path "models" | Out-Null
+New-Item -ItemType Directory -Force -Path "known_faces" | Out-Null
+
+Write-Host "`nEnvironment ready. To run:"
+Write-Host ".\$Venv\Scripts\Activate.ps1"
+Write-Host "python main.py"
