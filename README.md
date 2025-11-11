@@ -70,3 +70,7 @@ ai/
   known_faces/     # created on first run
   models/          # created on first run
 ```
+
+## note
+- this progeram is still doing locally and need a lot of dataset (faces) to make it work.
+- program will train everytime it run and sometimes the program gonna be slow a little bit, depends on how many dataset in `known_faces`
